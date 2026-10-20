@@ -35,6 +35,15 @@
 * **Clean Silicon Dispatch:** Neutralized Qualcomm closed-source binary assertion traps (`BaseDebugLibNull`) and disabled hardware watchdog resets for maximum stability.
 * **Native Resolution Display:** Pixel-perfect 1080 × 2400 display output with high-performance BLT rendering.
 
+## RAM-only Munch profile
+
+The `munch` device configuration builds with `MUNCH_RAM_ONLY=TRUE`. This
+profile omits UFS, SCSI, GPT/partition, filesystem, USB mass-storage and Linux
+mass-storage components, as well as the UEFI Shell. It is intended for a
+future memory-map and handoff experiment where no firmware code may scan
+`userdata`; it is not an installation image and must not be used with the
+installer or `--boot` until the image has been reviewed.
+
 ---
 
 ## 🎮 Physical Key Bindings

@@ -443,6 +443,7 @@
   }
   Platform/RenegadePkg/Drivers/LogoDxe/LogoDxe.inf
 
+!if $(MUNCH_RAM_ONLY) != TRUE
   ShellPkg/Application/Shell/Shell.inf {
     <LibraryClasses>
       ShellCommandLib|ShellPkg/Library/UefiShellCommandLib/UefiShellCommandLib.inf
@@ -462,8 +463,10 @@
       gEfiShellPkgTokenSpaceGuid.PcdShellLibAutoInitialize|FALSE
       gEfiMdePkgTokenSpaceGuid.PcdUefiLibMaxPrintBufferSize|8000
   }
+!endif
 
   # Disk IO
+!if $(MUNCH_RAM_ONLY) != TRUE
   MdeModulePkg/Universal/Disk/DiskIoDxe/DiskIoDxe.inf
   MdeModulePkg/Universal/Disk/PartitionDxe/PartitionDxe.inf {
     <LibraryClasses>
@@ -475,13 +478,16 @@
   FatPkg/EnhancedFatDxe/Fat.inf
   MdeModulePkg/Bus/Scsi/ScsiBusDxe/ScsiBusDxe.inf
   MdeModulePkg/Bus/Scsi/ScsiDiskDxe/ScsiDiskDxe.inf
+!endif
 
   # USB
   MdeModulePkg/Bus/Usb/UsbMouseAbsolutePointerDxe/UsbMouseAbsolutePointerDxe.inf
   MdeModulePkg/Bus/Usb/UsbBusDxe/UsbBusDxe.inf
   MdeModulePkg/Bus/Usb/UsbKbDxe/UsbKbDxe.inf
   MdeModulePkg/Bus/Usb/UsbMouseDxe/UsbMouseDxe.inf
+!if $(MUNCH_RAM_ONLY) != TRUE
   MdeModulePkg/Bus/Usb/UsbMassStorageDxe/UsbMassStorageDxe.inf
+!endif
 
   # DT
   EmbeddedPkg/Drivers/DtPlatformDxe/DtPlatformDxe.inf
@@ -513,7 +519,9 @@
   # Helper drivers
   Platform/RenegadePkg/Drivers/SetCPUFreqDxe/SetCPUFreqDxe.inf
   Platform/RenegadePkg/Drivers/KernelErrataPatcher/KernelErrataPatcher.inf
+!if $(MUNCH_RAM_ONLY) != TRUE
   Platform/EFI_Binaries/Applications/LinuxSimpleMassStorage/LinuxSimpleMassStorage.inf
+!endif
   Silicon/Qualcomm/QcomPkg/Drivers/SynapticsRmi4Dxe/SynapticsTouchDevice.inf
   Silicon/Qualcomm/QcomPkg/Drivers/SynapticsRmi4Dxe/SynapticsTouchDxe.inf
   Silicon/Qualcomm/QcomPkg/Drivers/SynapticsTCMDxe/SynapticsTCMDevice.inf

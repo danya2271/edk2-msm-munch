@@ -119,6 +119,7 @@
     SECTION UI = "TzDxe"
   }
 
+!if $(MUNCH_RAM_ONLY) != TRUE
   FILE DRIVER = 0d35cd8e-97ea-4f9a-96af-0f0d89f76567 {
     SECTION DXE_DEPEX = Platform/EFI_Binaries/Drivers/sm8250/UFSDxe/UFSDxe.depex
     SECTION PE32 = Platform/EFI_Binaries/Drivers/sm8250/UFSDxe/UFSDxe.efi
@@ -180,3 +181,4 @@
     SECTION PE32 = Platform/EFI_Binaries/Drivers/fsdrivers/ext2_aa64.efi
     SECTION UI = "Ext2Dxe"
   }
+!endif

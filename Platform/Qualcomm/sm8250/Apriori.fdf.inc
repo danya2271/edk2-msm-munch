@@ -139,6 +139,7 @@ APRIORI DXE {
 #    SECTION UI = "PmicDxe"
 #  }
 
+!if $(MUNCH_RAM_ONLY) != TRUE
   INF MdeModulePkg/Universal/Disk/DiskIoDxe/DiskIoDxe.inf
   INF MdeModulePkg/Universal/Disk/PartitionDxe/PartitionDxe.inf
   INF MdeModulePkg/Universal/Disk/UnicodeCollation/EnglishDxe/EnglishDxe.inf
@@ -161,6 +162,8 @@ APRIORI DXE {
     SECTION PE32 = Platform/EFI_Binaries/Drivers/fsdrivers/exfat_aa64.efi
     SECTION UI = "ExfatDxe"
   }
+
+!endif
 
   FILE DRIVER = 6925fad3-e243-4b69-ad61-3f978c8abc60 {
     SECTION DXE_DEPEX = Platform/EFI_Binaries/Drivers/sm8250/TzDxe/TzDxe.depex
@@ -217,7 +220,9 @@ APRIORI DXE {
   INF MdeModulePkg/Bus/Usb/UsbBusDxe/UsbBusDxe.inf
   INF MdeModulePkg/Bus/Usb/UsbMouseDxe/UsbMouseDxe.inf
   INF MdeModulePkg/Bus/Usb/UsbKbDxe/UsbKbDxe.inf
+!if $(MUNCH_RAM_ONLY) != TRUE
   INF MdeModulePkg/Bus/Usb/UsbMassStorageDxe/UsbMassStorageDxe.inf
+!endif
 
   FILE DRIVER = cd823a4d-7dec-4531-ae5d-4134fa4127b8 {
     SECTION DXE_DEPEX = Platform/EFI_Binaries/Drivers/sm8250/UsbConfigDxe/UsbConfigDxe.depex

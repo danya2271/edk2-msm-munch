@@ -53,6 +53,7 @@ function _build(){
 	make -C "${_EDK2}/BaseTools"||exit "$?"
 
 	SPLIT_DSDT=false
+	MUNCH_RAM_ONLY=FALSE
 	EXT=""
 
 	if [ -f "configs/devices/${DEVICE}.conf" ]
@@ -137,6 +138,7 @@ function _build(){
 		-D NO_EXCEPTION_DISPLAY="${NO_EXCEPTION_DISPLAY}" \
 		-D FD_BASE="${FD_BASE}" -D FD_SIZE="${FD_SIZE}" \
 		-D ENABLE_LINUX_UTILS="${ENABLE_LINUX_UTILS}" \
+		-D MUNCH_RAM_ONLY="${MUNCH_RAM_ONLY}" \
 		||return "$?"
 	_call_hook platform_build_kernel||return "$?"
 	_call_hook platform_build_bootimg||return "$?"

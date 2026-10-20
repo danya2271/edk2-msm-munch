@@ -16,6 +16,9 @@
 [BuildOptions.common]
   GCC:*_*_AARCH64_CC_FLAGS = -DENABLE_SIMPLE_INIT
 
+[Components.common]
+  Platform/Xiaomi/sm8250/Drivers/MunchMemoryMapDxe/MunchMemoryMapDxe.inf
+
 [PcdsFixedAtBuild.common]
   gQcomTokenSpaceGuid.PcdMipiFrameBufferAddress|0x9c000000
   gQcomTokenSpaceGuid.PcdMipiFrameBufferWidth|1080

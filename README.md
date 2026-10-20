@@ -44,6 +44,10 @@ future memory-map and handoff experiment where no firmware code may scan
 `userdata`; it is not an installation image and must not be used with the
 installer or `--boot` until the image has been reviewed.
 
+The profile also includes `MunchMemoryMapDxe`, which emits the UEFI
+`GetMemoryMap()` descriptors through the existing debug console. Its output is
+diagnostic only; it does not read storage or authorize a boot.
+
 ---
 
 ## 🎮 Physical Key Bindings

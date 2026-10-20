@@ -1,0 +1,18 @@
+[Defines]
+  INF_VERSION                    = 0x0001001B
+  BASE_NAME                      = MunchMemoryMapDxe
+  FILE_GUID                      = A5E18C6E-B4C2-4B19-A999-E1A8E9C2F0A7
+  MODULE_TYPE                    = DXE_DRIVER
+  VERSION_STRING                 = 0.1
+  ENTRY_POINT                    = MunchMemoryMapDxeEntryPoint
+
+[Sources]
+  MunchMemoryMapDxe.c
+
+[Packages]
+  MdePkg/MdePkg.dec
+
+[LibraryClasses]
+  DebugLib
+  MemoryAllocationLib
+  UefiBootServicesTableLib

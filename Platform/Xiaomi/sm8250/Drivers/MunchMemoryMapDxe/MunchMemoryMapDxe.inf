@@ -16,3 +16,6 @@
   DebugLib
   MemoryAllocationLib
   UefiBootServicesTableLib
+
+[Depex]
+  TRUE

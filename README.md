@@ -35,14 +35,16 @@
 * **Clean Silicon Dispatch:** Neutralized Qualcomm closed-source binary assertion traps (`BaseDebugLibNull`) and disabled hardware watchdog resets for maximum stability.
 * **Native Resolution Display:** Pixel-perfect 1080 × 2400 display output with high-performance BLT rendering.
 
-## RAM-only Munch profile
+## Munch UFS profile
 
-The `munch` device configuration builds with `MUNCH_RAM_ONLY=TRUE`. This
-profile omits UFS, SCSI, GPT/partition, filesystem, USB mass-storage and Linux
-mass-storage components, as well as the UEFI Shell. It is intended for a
-future memory-map and handoff experiment where no firmware code may scan
-`userdata`; it is not an installation image and must not be used with the
-installer or `--boot` until the image has been reviewed.
+The `munch` device configuration builds with `MUNCH_RAM_ONLY=FALSE`. The
+firmware therefore includes the Qualcomm UFS DXE driver, SCSI disk support,
+GPT/partition discovery, filesystem drivers and the UEFI Shell. This is the
+storage-enabled profile used for the iOS `iosroot` bring-up.
+
+The previous RAM-only configuration remains available as a local build-time
+override with `-D MUNCH_RAM_ONLY=TRUE`; it must not be used for an iOS root
+stored on UFS.
 
 The profile also includes `MunchMemoryMapDxe`, which emits the UEFI
 `GetMemoryMap()` descriptors through the existing debug console. Its output is
